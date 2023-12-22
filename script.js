@@ -10,7 +10,7 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
 // Song titles
-const songs = ['dream','melody','peace'];
+const songs = ['Radio'];
 
 // Keep track of song
 let songIndex = 1;
@@ -21,8 +21,7 @@ loadSong(songs[songIndex]);
 // Update song details
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `music/${song}.mp3`;
-  cover.src = `images/${song}.jpg`;
+  audio.src = `music/${song}.m3u`;
 }
 
 // Play song
@@ -43,31 +42,6 @@ function pauseSong() {
   audio.pause();
 }
 
-// Previous song
-function prevSong() {
-  songIndex--;
-
-  if (songIndex < 0) {
-    songIndex = songs.length - 1;
-  }
-
-  loadSong(songs[songIndex]);
-
-  playSong();
-}
-
-// Next song
-function nextSong() {
-  songIndex++;
-
-  if (songIndex > songs.length - 1) {
-    songIndex = 0;
-  }
-
-  loadSong(songs[songIndex]);
-
-  playSong();
-}
 
 // Update progress bar
 function updateProgress(e) {
